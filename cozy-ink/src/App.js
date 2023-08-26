@@ -11,13 +11,24 @@ function App() {
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
+      title: "title",
       text: "test :sob:",
-      tag: "test",
+      tags: "test",
     },
   ]);
+  const addNote = (title, text, tags) => {
+    const newNote = {
+      id: nanoid(),
+      title: title,
+      text: text,
+      tags: tags,
+    }
+    const newNotes = [...notes, newNote];
+    setNotes(newNotes);
+  }
   return (
     <div className='container'>
-      <NotesList notes={notes} />
+      <NotesList notes={notes} handleAddNote={addNote}/>
     </div>
   );
 }
