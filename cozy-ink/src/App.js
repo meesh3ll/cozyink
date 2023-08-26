@@ -1,27 +1,28 @@
 import './App.css';
-import {tagList} from './Tag'
-import {noteButton} from './Search'
-import {searchBar} from './Search'
-import {note} from './Note'
+import {TagList} from './Tag'
+import {NoteButton} from './Search'
+import {SearchBar} from './Search'
+import {NotesList} from './NotesList'
+import {useState} from 'react';
 
 function App() {
   return (
     <div>
     
       <div>
-        <tagList />
+        <TagList/>
       </div>
 
       <div>
-        <searchBar />
+        <SearchBar/>
       </div>
 
       <div>
-        <note />
+        <NotesList/>
       </div>
 
       <div>
-        <noteButton />
+        <NoteButton/>
       </div>
 
     </div>

@@ -1,4 +1,4 @@
-const note = ({text, tags}) => {
+const Note = ({text, tags}) => {
     return (
         <div className='note'>
             <span>{text}</span>
@@ -9,4 +9,4 @@ const note = ({text, tags}) => {
     )
 }
 
-export default note
+export default Note;

@@ -1,4 +1,4 @@
-function tagList() {
+function TagList() {
     return (
         <div>
             Hello
@@ -6,4 +6,4 @@ function tagList() {
     );
 }
 
-export {tagList}
+export {TagList}
