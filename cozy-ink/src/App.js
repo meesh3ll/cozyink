@@ -1,6 +1,5 @@
 import './App.css';
-<<<<<<<<< Temporary merge branch 1
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { TagList } from './TagList';
 import { NoteButton } from './Search';
@@ -8,45 +7,14 @@ import { SearchBar } from './Search';
 import NotesList from './NotesList';
 
 function App() {
-  const [notes, setNotes] = useState([
-    {
-      id: nanoid(),
-      title: "title",
-      text: "test :sob:",
-      tag: "test",
-    },
-  ]);
-  useEffect(() => {
-    const savedNotes = JSON.parse(localStorage.getItem('cozy-ink-note-data'));
-    if (savedNotes) {
-      setNotes(savedNotes);
-    }
-  }, []);
-  
-  useEffect(() => {
-    localStorage.setItem('cozy-ink-note-data', JSON.stringify(notes));
-  }, [notes]);
+  const [notes, setNotes] = useState([]);
 
-  const addNote = (title, text, tag) => {
-=========
-import {useState} from 'react';
-import {SearchBar} from './Search';
-import {nanoid} from 'nanoid';
-import NotesList from './NotesList';
-
-function App() {
+  const [tagList, setTagList] = useState(() => new Set());
+    
   const [searchInfo, setSearch] = useState('');
-
-  const [notes, setNotes] = useState([
-    {
-      id: nanoid(),
-      title: "title",
-      text: "test :sob:",
-      tags: "test",
-    },
-  ]);
-  const addNote = (title, text, tags) => {
->>>>>>>>> Temporary merge branch 2
+    
+  const addNote = (title, text, tag) => {
+    setTagList(prev => new Set(prev).add(tag));
     const newNote = {
       id: nanoid(),
       title: title,
@@ -56,27 +24,45 @@ function App() {
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
   };
-=========
-      tags: tags,
-    }
-    const newNotes = [...notes, newNote];
-    setNotes(newNotes);
-  }
->>>>>>>>> Temporary merge branch 2
+
+  const deleteNote = (id, title, text) => {
+    const notesArray = [...notes];
+    const deletedNoteIndex = notesArray.findIndex((x) => x.id === id);
+    notesArray[deletedNoteIndex] = {
+      id: id,
+      title: title,
+      text: text,
+      tag: "deleted",
+    };
+    setNotes(notesArray);
+  };
+
+  const [selectedTag, setSelectedTag] = useState("");
+  console.log("selectedTag:", selectedTag);
 
   const tagChannel = e => {
     setSelectedTag(e.target.value);
   };
-<<<<<<<<< Temporary merge branch 1
-  return (
-    <div className='container'>
-      <NotesList
-        notes={notes}
-        handleAddNote={addNote}
-        handleDeleteNote={deleteNote}
-      />
-    </div>
-=========
+
+  const createNotesList = () => {
+    if (selectedTag === "") {
+      return (
+        <NotesList
+          notes={notes.filter((note) => note.tag !== "deleted" && (note.text.toLowerCase().includes(searchInfo) || note.title.toLowerCase().includes(searchInfo)))}
+          handleAddNote={addNote}
+          handleDeleteNote={deleteNote}
+        />
+      );
+    } else {
+      return (
+        <NotesList
+          notes={notes.filter((note) => note.tag === selectedTag && (note.text.toLowerCase().includes(searchInfo) || note.title.toLowerCase().includes(searchInfo)))}
+          handleAddNote={addNote}
+          handleDeleteNote={deleteNote}
+        />
+      );
+    }
+  };
 
   return (
     <div>
@@ -102,8 +88,7 @@ function App() {
       </div>
 
     </div>
-  
->>>>>>>>> Temporary merge branch 2
+
   );
 }
 
