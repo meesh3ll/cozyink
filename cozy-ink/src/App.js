@@ -4,7 +4,7 @@ import { nanoid } from "nanoid";
 import { TagList } from "./Tag";
 import { NoteButton } from "./Search";
 import { SearchBar } from "./Search";
-import { Note } from "./Note";
+
 import NotesList from "./NotesList";
 
 function App() {
