@@ -1,9 +1,9 @@
-function TagList() {
+const TagList = () => {
     return (
-        <div>
-            Hello
+        <div style={{background: "lightblue"}}>
+            <button>Home</button>
         </div>
     );
-}
+};
 
 export {TagList}
