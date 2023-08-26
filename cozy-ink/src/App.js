@@ -11,14 +11,21 @@ function App() {
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
-      title: 'title',
-      text: 'test :sob:',
-      tags: 'test',
+      title: "title",
+      text: "test :sob:",
+      tags: "test",
     },
   ]);
   useEffect(() => {
-    localStorage.setItem('react-notes-app-data', JSON.stringify);
+    const savedNotes = JSON.parse(localStorage.getItem('cozy-ink-note-data'));
+    if (savedNotes) {
+      setNotes(savedNotes);
+    }
   }, []);
+  useEffect(() => {
+    localStorage.setItem('cozy-ink-note-data', JSON.stringify);
+  }, [notes]);
+
   const addNote = (title, text, tags) => {
     const newNote = {
       id: nanoid(),
@@ -29,6 +36,7 @@ function App() {
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
   };
+
   const deleteNote = (id) => {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
