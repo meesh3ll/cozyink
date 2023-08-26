@@ -1,7 +1,7 @@
 const Tag = ({ tag, filterTags }) => {
     return (
         <div className="tag">
-            <button onClick={filterTags}>{tag}</button>
+            <button onClick={filterTags} value={tag}>{tag}</button>
         </div>
     );
 };

@@ -8,14 +8,7 @@ import { SearchBar } from './Search';
 import NotesList from './NotesList';
 
 function App() {
-  const [notes, setNotes] = useState([
-    {
-      id: nanoid(),
-      title: "title",
-      text: "test :sob:",
-      tag: "test",
-    },
-  ]);
+  const [notes, setNotes] = useState([]);
 
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem('cozy-ink-note-data'));
@@ -28,17 +21,17 @@ function App() {
     localStorage.setItem('cozy-ink-note-data', JSON.stringify(notes));
   }, [notes]);
 
-  const tagList = new Set();
+  //const tagList = new Set();
+  const [tagList, setTagList] = useState(() => new Set());
 
   const addNote = (title, text, tags) => {
-    tagList.add(tags);
-    console.log(tagList);
+    setTagList(prev => new Set(prev).add(tags));
 
     const newNote = {
       id: nanoid(),
       title: title,
       text: text,
-      tag: tag,
+      tag: tags,
     };
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
@@ -48,17 +41,44 @@ function App() {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
   };
-  
+
+  const [selectedTag, setSelectedTag] = useState("");
+  console.log("selectedTag:", selectedTag);
+
+  const filterTags = e => {
+    setSelectedTag(e.target.value);
+  };
+
+  const createNotesList = () => {
+    if (selectedTag === "") {
+      return (
+        <NotesList
+          notes={notes}
+          handleAddNote={addNote}
+          handleDeleteNote={deleteNote}
+        />
+      );
+    } else {
+      return (
+        <NotesList
+          notes={notes.filter((note) => note.tag === selectedTag)}
+          handleAddNote={addNote}
+          handleDeleteNote={deleteNote}
+        />
+      );
+    }
+  };
+
+  console.log(tagList);
+  console.log(notes);
+  //console.log(notes.filter(note => !tagList.has(note.tag)));
+
   return (
     <div className="container">
       <div>
-        <TagList notes={notes} tagList={tagList}/>
+        <TagList tagList={tagList} filterTags={filterTags}/>
       </div>
-      <NotesList
-        notes={notes}
-        handleAddNote={addNote}
-        handleDeleteNote={deleteNote}
-      />
+      {createNotesList()}
     </div>
   );
 }
