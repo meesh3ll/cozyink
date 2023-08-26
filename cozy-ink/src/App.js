@@ -1,29 +1,13 @@
 import './App.css';
-import {tagList} from './Tag'
-import {noteButton} from './Search'
-import {searchBar} from './Search'
-import {note} from './Note'
+import {TagList} from './Tag'
+import {NoteButton} from './Search'
+import {SearchBar} from './Search'
+import {Note} from './Note'
 
 function App() {
   return (
     <div>
-    
-      <div>
-        <tagList />
-      </div>
-
-      <div>
-        <searchBar />
-      </div>
-
-      <div>
-        <note />
-      </div>
-
-      <div>
-        <noteButton />
-      </div>
-
+      <TagList />
     </div>
   );
 }
