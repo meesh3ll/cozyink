@@ -89,22 +89,20 @@ body{
 
 .note {
   background-color: #ffc4d8;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   padding: 1rem;
-  min-height: 170px;
+  height: 210px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: auto;
   overflow-wrap: break-word;
-  max-height: 250px;
 }
 
 .footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 5px;
   margin-top: 5px;
 }
 
@@ -116,7 +114,9 @@ body{
 
 .new-note {
   background-color: #ffadcf;
-  padding: 10px 10px 10px 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .title-area {
