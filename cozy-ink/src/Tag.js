@@ -6,4 +6,4 @@ function tagList() {
     );
 }
 
-export {Taglist}
+export {tagList}
