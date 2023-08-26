@@ -1,5 +1,5 @@
 import {MdDelete} from 'react-icons/md';
-const Note = ({ id, title, text, tags, handleDeleteNote }) => {
+const Note = ({ id, title, text, tag, handleDeleteNote }) => {
     return (
       <><div className='note'>
             <div className='title'>
@@ -8,7 +8,9 @@ const Note = ({ id, title, text, tags, handleDeleteNote }) => {
             </div>
             <div>{text}</div>
             <div className='footer'>
-                <small>{tags}</small>
+                <div className = 'footer-tag'>
+                    <small>{tag}</small>
+                </div>
                 <button 
                     className='delete'
                     onClick={() => handleDeleteNote(id)}

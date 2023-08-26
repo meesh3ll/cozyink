@@ -104,7 +104,14 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 5px 5px 5px 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.footer-tag {
+  background-color: #ffadcf;
+  border-radius: 15px;
+  padding: 5px;
 }
 
 .new-note {

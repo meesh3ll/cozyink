@@ -15,12 +15,12 @@ function App() {
       tags: "test",
     },
   ]);
-  const addNote = (title, text, tags) => {
+  const addNote = (title, text, tag) => {
     const newNote = {
       id: nanoid(),
       title: title,
       text: text,
-      tags: tags,
+      tag: tag,
     }
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
