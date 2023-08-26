@@ -4,11 +4,12 @@ import {SearchBar} from './Search';
 import {NoteButton} from './NoteButton';
 
 function App() {
-  const [searchInfo, setSearch] 
+  const [searchInfo, setSearch] = useState('');
+  
   return (
     <div>
       <div>
-        <SearchBar />
+        <SearchBar  handleSearch = {setSearch}/>
       </div>
 
       <div>
