@@ -1,4 +1,4 @@
-function noteSpace() {
+const noteSpace = () => {
     return (
         < noteSpace />
     )
