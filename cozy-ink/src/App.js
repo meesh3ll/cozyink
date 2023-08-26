@@ -21,7 +21,6 @@ function App() {
     localStorage.setItem('cozy-ink-note-data', JSON.stringify(notes));
   }, [notes]);
 
-  //const tagList = new Set();
   const [tagList, setTagList] = useState(() => new Set());
 
   const addNote = (title, text, tags) => {
@@ -37,15 +36,21 @@ function App() {
     setNotes(newNotes);
   };
 
-  const deleteNote = (id) => {
-    const newNotes = notes.filter((note) => note.id !== id);
-    setNotes(newNotes);
+  const deleteNote = (id, title, text) => {
+    const notesArray = [...notes];
+    const deletedNoteIndex = notesArray.findIndex((x) => x.id === id);
+    notesArray[deletedNoteIndex] = {
+      id: id,
+      title: title,
+      text: text,
+      tag: "delete",
+    };
   };
 
   const [selectedTag, setSelectedTag] = useState("");
   console.log("selectedTag:", selectedTag);
 
-  const filterTags = e => {
+  const tagChannel = e => {
     setSelectedTag(e.target.value);
   };
 
@@ -53,7 +58,7 @@ function App() {
     if (selectedTag === "") {
       return (
         <NotesList
-          notes={notes}
+          notes={notes.filter((note) => note.tag !== "delete")}
           handleAddNote={addNote}
           handleDeleteNote={deleteNote}
         />
@@ -76,7 +81,7 @@ function App() {
   return (
     <div className="container">
       <div>
-        <TagList tagList={tagList} filterTags={filterTags}/>
+        <TagList tagList={tagList} handleTagChannel={tagChannel}/>
       </div>
       {createNotesList()}
     </div>

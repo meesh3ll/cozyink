@@ -1,12 +1,13 @@
 import {Tag} from './Tag'
 
-const TagList = ({ tagList, filterTags }) => {
+const TagList = ({ tagList, handleTagChannel }) => {
     return (
         <div style={{background: "lightblue"}}>
-            <button>Home</button>
+            <button onClick={handleTagChannel} value="">Home</button>
             {Array.from(tagList).map((tag) => (
-                <Tag tag={tag} filterTags={filterTags}/>
+                <Tag tag={tag} handleTagChannel={handleTagChannel}/>
             ))}
+            <button onClick={handleTagChannel} value="delete">Delete</button>
         </div>
     );
 };

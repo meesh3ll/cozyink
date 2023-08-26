@@ -10,7 +10,7 @@ const Note = ({ id, title, text, tag, handleDeleteNote }) => {
           <small>{tag}</small>
           <button
             className='delete'
-            onClick={() => handleDeleteNote(id)}
+            onClick={() => handleDeleteNote(id, title, text)}
           ></button>
         </div>
       </div>

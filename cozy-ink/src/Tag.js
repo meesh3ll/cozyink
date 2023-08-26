@@ -1,7 +1,7 @@
-const Tag = ({ tag, filterTags }) => {
+const Tag = ({ tag, handleTagChannel }) => {
     return (
         <div className="tag">
-            <button onClick={filterTags} value={tag}>{tag}</button>
+            <button onClick={handleTagChannel} value={tag}>{tag}</button>
         </div>
     );
 };
