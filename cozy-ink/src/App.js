@@ -2,7 +2,6 @@ import './App.css';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { TagList } from './TagList';
-import { NoteButton } from './Search';
 import { SearchBar } from './Search';
 import NotesList from './NotesList';
 
