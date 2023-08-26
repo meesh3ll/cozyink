@@ -1,7 +1,12 @@
-const noteSpace = () => {
+const note = ({text, tags}) => {
     return (
-        < noteSpace />
+        <div className='note'>
+            <span>{text}</span>
+            <div className='tagList'>
+                <small>{tags}</small>
+            </div>
+        </div>
     )
 }
 
-export default App
+export default note
