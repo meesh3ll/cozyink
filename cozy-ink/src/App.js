@@ -1,20 +1,31 @@
 import './App.css';
 import {useState} from 'react';
 import {SearchBar} from './Search';
-import {NoteButton} from './NoteButton';
 
 function App() {
   const [searchInfo, setSearch] = useState('');
-  
+
   return (
     <div>
-      <div>
-        <SearchBar  handleSearch = {setSearch}/>
+      <div className = "guest-bar">
+        Guest
       </div>
 
-      <div>
-        <NoteButton />
+      <div className = "trash-bar"> 
+        Trash
+        <div className = "tag-bar">
+        
+        </div>
+        
       </div>
+
+      <div className = "big-div">
+        <div>
+          <SearchBar  handleSearch = {setSearch}/>
+        </div>
+        
+      </div>
+
     </div>
   
   );
