@@ -4,33 +4,24 @@ import { nanoid } from 'nanoid';
 import { TagList } from './TagList';
 import { NoteButton } from './Search';
 import { SearchBar } from './Search';
-
 import NotesList from './NotesList';
 
 function App() {
   const [notes, setNotes] = useState([]);
 
-  useEffect(() => {
-    const savedNotes = JSON.parse(localStorage.getItem('cozy-ink-note-data'));
-    if (savedNotes) {
-      setNotes(savedNotes);
-    }
-  }, []);
-  
-  useEffect(() => {
-    localStorage.setItem('cozy-ink-note-data', JSON.stringify(notes));
-  }, [notes]);
-
   const [tagList, setTagList] = useState(() => new Set());
 
   const addNote = (title, text, tags) => {
     setTagList(prev => new Set(prev).add(tags));
-
+    
+  const [searchInfo, setSearch] = useState('');
+    
+  const addNote = (title, text, tag) => {
     const newNote = {
       id: nanoid(),
       title: title,
       text: text,
-      tag: tags,
+      tag: tag,
     };
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
@@ -59,7 +50,7 @@ function App() {
     if (selectedTag === "") {
       return (
         <NotesList
-          notes={notes.filter((note) => note.tag !== "deleted")}
+          notes={notes.filter((note) => note.tag !== "deleted" && (note.text.toLowerCase().includes(searchInfo) || note.title.toLowerCase().includes(searchInfo)))}
           handleAddNote={addNote}
           handleDeleteNote={deleteNote}
         />
@@ -67,7 +58,7 @@ function App() {
     } else {
       return (
         <NotesList
-          notes={notes.filter((note) => note.tag === selectedTag)}
+          notes={notes.filter((note) => note.tag === selectedTag && (note.text.toLowerCase().includes(searchInfo) || note.title.toLowerCase().includes(searchInfo)))}
           handleAddNote={addNote}
           handleDeleteNote={deleteNote}
         />
@@ -80,12 +71,30 @@ function App() {
   //console.log(notes.filter(note => !tagList.has(note.tag)));
 
   return (
-    <div className="container">
-      <div>
-        <TagList tagList={tagList} handleTagChannel={tagChannel}/>
+    <div>
+      <div className = "cozy-bar">
+        CozyInk
       </div>
-      {createNotesList()}
+
+      <div className = "trash-bar"> 
+        
+        <div className = "tag-bar">
+          <TagList tagList={tagList} handleTagChannel={tagChannel}/>
+        </div>
+        
+      </div>
+
+      <div className = "big-div">
+        <div>
+          <SearchBar  handleSearch = {setSearch}/>
+        </div>
+        <div className = "container">
+          {createNotesList()}
+        </div>
+      </div>
+
     </div>
+
   );
 }
 
