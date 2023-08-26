@@ -30,7 +30,7 @@ const AddNote = ({id, title, text, tag, handleAddNote}) => {
             </div>
             <hr/>
             <div className = 'text-area'>
-                <textarea rows='10' cols='27' placeholder='note...' value={noteText} onChange={handleNoteTextChange}></textarea>
+                <textarea rows='9' cols='27' placeholder='note...' value={noteText} onChange={handleNoteTextChange}></textarea>
             </div>
             <div className='footer'>
                 <div className='tag-area'>
