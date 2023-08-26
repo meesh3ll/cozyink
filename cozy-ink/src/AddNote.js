@@ -10,7 +10,12 @@ const AddNote = ({id, title, text, tag, handleAddNote}) => {
         setTitleText(event.target.value);
     }
     const handleSave = (event) => {
-        handleAddNote(titleText, noteText);
+        if (noteText.trim().length > 0 || titleText.trim().length > 0) {
+            handleAddNote(titleText, noteText);
+            setNoteText('');
+            setTitleText('');
+        }
+        
     }
     return (
         <><div className='new note'>
