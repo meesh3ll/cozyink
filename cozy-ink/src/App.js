@@ -33,8 +33,8 @@ function App() {
 
   return (
     <div>
-      <div className = "guest-bar">
-        Guest
+      <div className = "cozy-bar">
+        CozyInk
       </div>
 
       <div className = "trash-bar"> 
