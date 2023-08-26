@@ -1,3 +1,68 @@
-.note-button-area {
+body{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.guest-bar {
+  position: absolute;
+  width: 200px;
+  background-color: #aec5eb;
+  text-align: center;
+  padding: 5px;
+}
+
+.trash-bar {
+  position: absolute;
+  left: 20px;
+  top: 50px;
+  margin-top: 20px;
+  width: 200px;
+  bottom: 20px;
+  text-align: center;
+  background-color: #aec5eb;
+  height: 100;
+  padding: 5px;
+}
+
+.big-div {
+  position:absolute;
+  left: 250px;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  width: 100;
+  height: 100;
+  background-color: #aec5eb;
   float: right;
+  padding: 10px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #8195b5;
+  border-radius: 15px;
+  margin-bottom: 1em;
+  padding: 2px;
+}
+
+.search-bar input {
+  border: none;
+  background-color: #8195b5;
+  width: 80%;
+  height: 30px;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+.search-bar input::placeholder {
+  color: #283140;
+}
+
+.tag-bar {
+  scroll-behavior: smooth;
 }
