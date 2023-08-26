@@ -7,7 +7,7 @@ const TagList = ({ tagList, handleTagChannel }) => {
             {Array.from(tagList).map((tag) => (
                 <Tag tag={tag} handleTagChannel={handleTagChannel}/>
             ))}
-            <button onClick={handleTagChannel} value="delete">Delete</button>
+            <button onClick={handleTagChannel} value="deleted">Trash</button>
         </div>
     );
 };

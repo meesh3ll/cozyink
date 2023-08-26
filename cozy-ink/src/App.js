@@ -43,8 +43,9 @@ function App() {
       id: id,
       title: title,
       text: text,
-      tag: "delete",
+      tag: "deleted",
     };
+    setNotes(notesArray);
   };
 
   const [selectedTag, setSelectedTag] = useState("");
@@ -58,7 +59,7 @@ function App() {
     if (selectedTag === "") {
       return (
         <NotesList
-          notes={notes.filter((note) => note.tag !== "delete")}
+          notes={notes.filter((note) => note.tag !== "deleted")}
           handleAddNote={addNote}
           handleDeleteNote={deleteNote}
         />
