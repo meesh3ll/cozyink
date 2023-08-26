@@ -27,7 +27,7 @@ const AddNote = ({ id, title, text, tag, handleAddNote }) => {
     <>
       <div className='new-note'>
         <div className = 'title-area'>
-          <textarea maxlength = '29' rows='1' cols='27' placeholder='title...' value={titleText} onChange={handleTitleChange}></textarea>
+          <textarea maxLength = '29' rows='1' cols='27' placeholder='title...' value={titleText} onChange={handleTitleChange}></textarea>
         </div>
         <hr />
         <div className = 'text-area'>
