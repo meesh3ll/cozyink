@@ -8,14 +8,7 @@ import { SearchBar } from './Search';
 import NotesList from './NotesList';
 
 function App() {
-  const [notes, setNotes] = useState([
-    {
-      id: nanoid(),
-      title: "title",
-      text: "test :sob:",
-      tag: "test",
-    },
-  ]);
+  const [notes, setNotes] = useState([]);
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem('cozy-ink-note-data'));
     if (savedNotes) {
