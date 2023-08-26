@@ -18,4 +18,7 @@ const NotesList = ({ notes, handleAddNote, handleDeleteNote }) => {
   );
 };
 
+<<<<<<<<< Temporary merge branch 1
+export default NotesList;
+=========
 export default NotesList;

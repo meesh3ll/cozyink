@@ -1,15 +1,21 @@
 import './App.css';
+<<<<<<<<< Temporary merge branch 1
 import { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
-import { TagList } from './Tag';
+import { TagList } from './TagList';
 import { NoteButton } from './Search';
 import { SearchBar } from './Search';
 import NotesList from './NotesList';
 
 function App() {
-  const [searchInfo, setSearch] = useState('');
-
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState([
+    {
+      id: nanoid(),
+      title: "title",
+      text: "test :sob:",
+      tag: "test",
+    },
+  ]);
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem('cozy-ink-note-data'));
     if (savedNotes) {
@@ -22,6 +28,25 @@ function App() {
   }, [notes]);
 
   const addNote = (title, text, tag) => {
+=========
+import {useState} from 'react';
+import {SearchBar} from './Search';
+import {nanoid} from 'nanoid';
+import NotesList from './NotesList';
+
+function App() {
+  const [searchInfo, setSearch] = useState('');
+
+  const [notes, setNotes] = useState([
+    {
+      id: nanoid(),
+      title: "title",
+      text: "test :sob:",
+      tags: "test",
+    },
+  ]);
+  const addNote = (title, text, tags) => {
+>>>>>>>>> Temporary merge branch 2
     const newNote = {
       id: nanoid(),
       title: title,
@@ -31,22 +56,38 @@ function App() {
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
   };
-
-  const deleteNote = (id) => {
-    const newNotes = notes.filter((note) => note.id !== id);
+=========
+      tags: tags,
+    }
+    const newNotes = [...notes, newNote];
     setNotes(newNotes);
+  }
+>>>>>>>>> Temporary merge branch 2
+
+  const tagChannel = e => {
+    setSelectedTag(e.target.value);
   };
+<<<<<<<<< Temporary merge branch 1
+  return (
+    <div className='container'>
+      <NotesList
+        notes={notes}
+        handleAddNote={addNote}
+        handleDeleteNote={deleteNote}
+      />
+    </div>
+=========
 
   return (
     <div>
-      <div className = "guest-bar">
-        Guest
+      <div className = "cozy-bar">
+        CozyInk
       </div>
 
       <div className = "trash-bar"> 
         
         <div className = "tag-bar">
-        
+          <TagList tagList={tagList} handleTagChannel={tagChannel}/>
         </div>
         
       </div>
@@ -56,12 +97,13 @@ function App() {
           <SearchBar  handleSearch = {setSearch}/>
         </div>
         <div className = "container">
-          <NotesList notes={notes.filter((note)=>note.text.toLowerCase().includes(searchInfo))} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
+          {createNotesList()}
         </div>
       </div>
 
     </div>
   
+>>>>>>>>> Temporary merge branch 2
   );
 }
 
