@@ -25,8 +25,9 @@ function App() {
     setNotes(newNotes);
   };
 
-  const deleteNote = (id, title, text) => {
+  const deleteNote = (id, title, text, tag) => {
     const notesArray = [...notes];
+    const oldTag = tag;
     const deletedNoteIndex = notesArray.findIndex((x) => x.id === id);
     notesArray[deletedNoteIndex] = {
       id: id,
@@ -35,10 +36,16 @@ function App() {
       tag: "deleted",
     };
     setNotes(notesArray);
+    const notesWithTag = notesArray.filter((note) => note.tag === oldTag);
+    if (notesWithTag.length <= 0) {
+      setTagList(prev => {
+        prev.delete(oldTag);
+        return new Set(prev);
+      });
+    }
   };
 
   const [selectedTag, setSelectedTag] = useState("");
-  console.log("selectedTag:", selectedTag);
 
   const tagChannel = e => {
     setSelectedTag(e.target.value);
