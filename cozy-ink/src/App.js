@@ -50,7 +50,7 @@ function App() {
           <SearchBar  handleSearch = {setSearch}/>
         </div>
         <div className = "container">
-          <NotesList notes={notes.filter((note)=>note.text.toLowerCase().includes(searchInfo) || note.title.toLowerCase().includes(searchInfo))} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
+          <NotesList notes={notes.filter((note)=>note.text.toLowerCase().includes(searchInfo) || note.title.toLowerCase().includes(searchInfo) || note.tag.toLowerCase().includes(searchInfo))} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
         </div>
       </div>
 
