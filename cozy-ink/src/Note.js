@@ -1,8 +1,8 @@
 const Note = ({ id, text, tag }) => {
   return (
-    <div className="note">
+    <div className='note'>
       <span>{text}</span>
-      <div className="tagList">
+      <div className='tagList'>
         <small>{tag}</small>
       </div>
     </div>
