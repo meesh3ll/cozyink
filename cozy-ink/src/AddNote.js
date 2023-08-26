@@ -18,8 +18,8 @@ const AddNote = ({id, title, text, tag, handleAddNote}) => {
         
     }
     return (
-        <><div className='new note'>
-            <textarea rows='1' cols='1' placeholder='title...' value={titleText} onChange={handleTitleChange}></textarea>
+        <><div className='new-note'>
+            <textarea rows='1' cols='10' placeholder='title...' value={titleText} onChange={handleTitleChange}></textarea>
             <textarea rows='10' cols='10' placeholder='type...' value={noteText} onChange={handleNoteTextChange}></textarea>
             <div className='footer'>
                 <small>{tag}</small>

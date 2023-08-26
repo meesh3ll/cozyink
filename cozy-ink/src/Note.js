@@ -1,4 +1,4 @@
-const Note = ({ id, title, text, tags }) => {
+const Note = ({ id, title, text, tags, handleDeleteNote }) => {
   return (
     <><div className='title'>
           <span>{title}</span>
@@ -6,7 +6,7 @@ const Note = ({ id, title, text, tags }) => {
               <span>{text}</span>
               <div className='footer'>
                   <small>{tags}</small>
-                  <button className='delete'></button>
+                  <button className='delete' onClick={() => handleDeleteNote(id)}></button>
               </div>
           </div></>
     
