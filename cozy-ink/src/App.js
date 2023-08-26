@@ -13,7 +13,7 @@ function App() {
       id: nanoid(),
       title: "title",
       text: "test :sob:",
-      tags: "test",
+      tag: "test",
     },
   ]);
   useEffect(() => {
@@ -22,16 +22,17 @@ function App() {
       setNotes(savedNotes);
     }
   }, []);
+  
   useEffect(() => {
-    localStorage.setItem('cozy-ink-note-data', JSON.stringify);
+    localStorage.setItem('cozy-ink-note-data', JSON.stringify(notes));
   }, [notes]);
 
-  const addNote = (title, text, tags) => {
+  const addNote = (title, text, tag) => {
     const newNote = {
       id: nanoid(),
       title: title,
       text: text,
-      tags: tags,
+      tag: tag,
     };
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
