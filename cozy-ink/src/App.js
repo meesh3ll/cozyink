@@ -12,7 +12,7 @@ function App() {
       </div>
 
       <div className = "trash-bar"> 
-        Trash
+        
         <div className = "tag-bar">
         
         </div>
