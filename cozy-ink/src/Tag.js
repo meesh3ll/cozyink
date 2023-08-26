@@ -1,7 +1,7 @@
-const Tag = ({ tag }) => {
+const Tag = ({ tag, filterTags }) => {
     return (
         <div className="tag">
-            <button>{tag}</button>
+            <button onClick={filterTags}>{tag}</button>
         </div>
     );
 };

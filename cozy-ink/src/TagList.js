@@ -1,12 +1,12 @@
 import {Tag} from './Tag'
 
-const TagList = ({ notes, tagList }) => {
+const TagList = ({ tagList, filterTags }) => {
     return (
         <div style={{background: "lightblue"}}>
             <button>Home</button>
-            {notes.filter(note => note.tags === tagList).map((note) => (
-                <Tag tag={note.tags}/>
-            ))}
+        {Array.from(tagList).map((tag) => (
+            <Tag tag={tag} filterTags={filterTags}/>
+        ))}
         </div>
     );
 };
