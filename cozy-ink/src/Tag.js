@@ -1,4 +1,4 @@
-const Tag = ({ id, text, tag }) => {
+const Tag = ({ tag }) => {
     return (
         <div className="tag">
             <button>{tag}</button>

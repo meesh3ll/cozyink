@@ -1,11 +1,11 @@
 import {Tag} from './Tag'
 
-const TagList = ({ notes }) => {
+const TagList = ({ notes, tagList }) => {
     return (
         <div style={{background: "lightblue"}}>
             <button>Home</button>
-            {notes.map((note) => (
-                <Tag id={note.id} text={note.text} tag={note.tag} />
+            {notes.filter(note => note.tags === tagList).map((note) => (
+                <Tag tag={note.tags}/>
             ))}
         </div>
     );

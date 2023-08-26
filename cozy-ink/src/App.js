@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import { TagList } from './Tag';
+import { TagList } from './TagList';
 import { NoteButton } from './Search';
 import { SearchBar } from './Search';
 
@@ -16,7 +16,10 @@ function App() {
       tags: "test",
     },
   ]);
+  const tagList = new Set();
   const addNote = (title, text, tags) => {
+    tagList.add(tags);
+    console.log(tagList);
     const newNote = {
       id: nanoid(),
       title: title,
@@ -29,7 +32,7 @@ function App() {
   return (
     <div className="container">
       <div>
-        <TagList notes={notes}/>
+        <TagList notes={notes} tagList={tagList}/>
       </div>
       <NotesList notes={notes} handleAddNote={addNote}/>
     </div>
