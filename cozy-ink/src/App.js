@@ -11,8 +11,8 @@ function App() {
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
-      text: 'test :sob:',
-      tag: 'test',
+      text: "test :sob:",
+      tag: "test",
     },
   ]);
   return (
