@@ -1,9 +1,9 @@
-const TagList = () => {
+const Tag = ({ id, text, tag }) => {
     return (
-        <div style={{background: "lightblue"}}>
-            <button>Home</button>
+        <div className="tag">
+            <button>{tag}</button>
         </div>
     );
 };
 
-export {TagList}
+export {Tag}

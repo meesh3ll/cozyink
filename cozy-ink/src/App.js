@@ -1,7 +1,8 @@
 import "./App.css";
 import { useState } from "react";
 import { nanoid } from "nanoid";
-import { TagList } from "./Tag";
+import { Tag } from "./Tag"
+import { TagList } from "./TagList";
 import { NoteButton } from "./Search";
 import { SearchBar } from "./Search";
 import { Note } from "./Note";
@@ -18,7 +19,7 @@ function App() {
   return (
     <div className="container">
       <div>
-        <TagList />
+        <TagList notes={notes}/>
       </div>
       <NotesList notes={notes} />
     </div>
