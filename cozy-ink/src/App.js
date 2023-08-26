@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import { TagList } from './Tag';
 import { NoteButton } from './Search';
@@ -11,28 +11,35 @@ function App() {
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
-      title: "title",
-      text: "test :sob:",
-      tags: "test",
+      title: 'title',
+      text: 'test :sob:',
+      tags: 'test',
     },
   ]);
+  useEffect(() => {
+    localStorage.setItem('react-notes-app-data', JSON.stringify);
+  }, []);
   const addNote = (title, text, tags) => {
     const newNote = {
       id: nanoid(),
       title: title,
       text: text,
       tags: tags,
-    }
+    };
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
-  }
+  };
   const deleteNote = (id) => {
-    const newNotes = notes.filter((note)=> note.id !== id)
-    setNotes(newNotes)
-  }
+    const newNotes = notes.filter((note) => note.id !== id);
+    setNotes(newNotes);
+  };
   return (
     <div className='container'>
-      <NotesList notes={notes} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
+      <NotesList
+        notes={notes}
+        handleAddNote={addNote}
+        handleDeleteNote={deleteNote}
+      />
     </div>
   );
 }
