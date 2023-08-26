@@ -169,6 +169,16 @@ textarea:focus {
   color: #99e892;
   border: none;
   cursor: pointer;
+  transition: transform .25s, opacity .25s;
+}
+
+.check-mark:before {
+  content: '\d7';
+}
+
+.check-mark:hover {
+  opacity: 1;
+  transform: rotate(360deg);
 }
 
 hr {
