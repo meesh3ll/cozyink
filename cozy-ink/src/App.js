@@ -1,18 +1,18 @@
-import "./App.css";
-import { useState } from "react";
-import { nanoid } from "nanoid";
-import { TagList } from "./Tag";
-import { NoteButton } from "./Search";
-import { SearchBar } from "./Search";
+import './App.css';
+import { useState } from 'react';
+import { nanoid } from 'nanoid';
+import { TagList } from './Tag';
+import { NoteButton } from './Search';
+import { SearchBar } from './Search';
 
-import NotesList from "./NotesList";
+import NotesList from './NotesList';
 
 function App() {
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
-      text: "test :sob:",
-      tag: "test",
+      text: 'test :sob:',
+      tag: 'test',
     },
   ]);
   return (
