@@ -14,6 +14,7 @@ body{
   font-family: monospace;
   font-weight: bolder;
   font-size: xx-large;
+  border-radius: 10px;
 }
 
 .trash-bar {
@@ -29,6 +30,7 @@ body{
   padding: 5px;
   overflow: auto;
   overflow-wrap: break-word;
+  border-radius: 10px;
 }
 
 .tag-bar {
@@ -52,6 +54,7 @@ body{
   background-color: #aec5eb;
   float: right;
   padding: 10px;
+  border-radius: 10px;
 }
 
 
