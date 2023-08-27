@@ -229,7 +229,22 @@ hr {
   border-radius: 15px;
   cursor: pointer;
   font-family: monospace;
+  animation: colorToLightPink 0.5s;
+}
 
+.tag-channel:hover {
+  animation: colorToPink 0.5s;
+  background-color: #ed95b9;
+}
+
+@keyframes colorToPink {
+  from {background-color: #ffc4d8}
+  to {background-color: #ed95b9}
+}
+
+@keyframes colorToLightPink {
+  from {background-color: #ed95b9}
+  to {background-color: #ffc4d8}
 }
 
 .tag {
