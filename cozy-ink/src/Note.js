@@ -13,8 +13,8 @@ const Note = ({ id, title, text, tag, handleDeleteNote }) => {
                 </div>
                 <button 
                     className='delete'
-                    onClick={() => handleDeleteNote(id, title, text)}
-                ><MdDelete size = "1.5rem" /></button>
+                    onClick={() => handleDeleteNote(id, title, text, tag)}
+                ><MdDelete size = "1.5rem"/></button>
             </div>
         </div></>
       
