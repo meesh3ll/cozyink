@@ -40,6 +40,7 @@ body{
   margin-bottom: auto;
 }
 
+
 .big-div {
   position:absolute;
   left: 250px;
@@ -90,6 +91,7 @@ body{
   padding-right: 15px;
   padding-left: 15px;
   overflow: auto;
+  z-index: 9;
 }
 
 .notes-list {
@@ -223,6 +225,8 @@ hr {
   height: 30px;
   border-radius: 15px;
   cursor: pointer;
+  font-family: monospace;
+
 }
 
 .tag {
