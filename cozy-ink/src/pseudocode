@@ -15,7 +15,7 @@
 
 
 some things we could add: 
-    - account system 
+    - account system / saving notes to storage
     - multiple tags per note
     - deleting tags from all notes
     - scroll bar for tag list
