@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/cozyink/static/css/main.d7672eb2.css",
+    "main.js": "/cozyink/static/js/main.e5b99d7e.js",
+    "static/js/787.befa207a.chunk.js": "/cozyink/static/js/787.befa207a.chunk.js",
+    "static/media/image0.jpg": "/cozyink/static/media/image0.66232d5002947aa1d8e2.jpg",
+    "index.html": "/cozyink/index.html",
+    "main.d7672eb2.css.map": "/cozyink/static/css/main.d7672eb2.css.map",
+    "main.e5b99d7e.js.map": "/cozyink/static/js/main.e5b99d7e.js.map",
+    "787.befa207a.chunk.js.map": "/cozyink/static/js/787.befa207a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d7672eb2.css",
+    "static/js/main.e5b99d7e.js"
+  ]
+}
