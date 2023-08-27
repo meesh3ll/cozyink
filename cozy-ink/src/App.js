@@ -2,16 +2,14 @@ import './App.css';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { TagList } from './TagList';
-import { NoteButton } from './Search';
 import { SearchBar } from './Search';
 import NotesList from './NotesList';
 
 function App() {
   const [notes, setNotes] = useState([]);
-
   const [tagList, setTagList] = useState(() => new Set());
-    
   const [searchInfo, setSearch] = useState('');
+  const [selectedTag, setSelectedTag] = useState("");
     
   const addNote = (title, text, tag) => {
     setTagList(prev => new Set(prev).add(tag));
@@ -44,8 +42,6 @@ function App() {
       });
     }
   };
-
-  const [selectedTag, setSelectedTag] = useState("");
 
   const tagChannel = e => {
     setSelectedTag(e.target.value);
