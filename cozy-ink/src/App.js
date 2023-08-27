@@ -82,6 +82,7 @@ function App() {
       </div>
 
       <div className = "big-div">
+        
         <div>
           <SearchBar  handleSearch = {setSearch}/>
         </div>

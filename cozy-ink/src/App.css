@@ -25,8 +25,19 @@ body{
   bottom: 20px;
   text-align: center;
   background-color: #aec5eb;
-  height: 100;
+  max-height: 100;
   padding: 5px;
+  overflow: auto;
+  overflow-wrap: break-word;
+}
+
+.tag-bar {
+  background-color: #aec5eb;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  max-width: 100;
+  margin-bottom: auto;
 }
 
 .big-div {
@@ -42,12 +53,13 @@ body{
   padding: 10px;
 }
 
+
 .search-bar {
   display: flex;
   align-items: center;
   background-color: #8195b5;
   border-radius: 15px;
-  margin-bottom: 1em;
+  margin-bottom: 25px;
   padding: 2px;
   font-family: monospace;
 }
@@ -68,9 +80,6 @@ body{
   color: #283140;
 }
 
-.tag-bar {
-  scroll-behavior: smooth;
-}
 
 .container {
   max-width: 100;
@@ -158,6 +167,16 @@ textarea:focus {
   color: #99e892;
   border: none;
   cursor: pointer;
+  transition: transform .25s, opacity .25s;
+}
+
+.check-mark:before {
+  content: '\d7';
+}
+
+.check-mark:hover {
+  opacity: 1;
+  transform: rotate(360deg) scale(1.2);
 }
 
 hr {
@@ -172,3 +191,41 @@ hr {
   cursor: pointer;
 }
 
+.delete:hover {
+  animation: shake 0.5s;
+  animation-iteration-count:infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(0.5px, 0.5px) rotate(0deg); }
+  10% { transform: translate(-0.5px, -1px) rotate(-1.5deg); }
+  20% { transform: translate(-1px, 0px) rotate(1.5deg); }
+  30% { transform: translate(1px, 1px) rotate(0deg); }
+  40% { transform: translate(1px, -0.5px) rotate(1.5deg); }
+  50% { transform: translate(-0.5px, 1px) rotate(-1.5deg); }
+  60% { transform: translate(-1px, 0.5px) rotate(0deg); }
+  70% { transform: translate(1px, 0.5px) rotate(-1.5deg); }
+  80% { transform: translate(-0.5px, -0.5px) rotate(1.5deg); }
+  90% { transform: translate(0.5px, 1px) rotate(0deg); }
+  100% { transform: translate(0.5px, -1px) rotate(-1.5deg); }
+}
+
+
+.tag-channel {
+  background-color: #ffc4d8;
+  border: solid 2px;
+  border-color: #ed95b9;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 170px;
+  height: 30px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.tag {
+  text-align: center;
+  overflow: auto;
+}
