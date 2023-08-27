@@ -2,7 +2,8 @@
   "dependencies": {
     "react-collapsed": "^4.0.4",
     "react-hook-form": "^7.45.4",
-    "react-icons": "^4.10.1"
+    "react-icons": "^4.10.1",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "gh-pages": "^6.0.0"
